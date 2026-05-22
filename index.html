@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate's Blog</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #777;
+        }
+        .container {
+            padding: 20px;
+        }
+        .blog-post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .blog-post h2 {
+            margin-top: 0;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pirate's Blog</h1>
+        <p>Adventures on the High Seas</p>
+    </header>
+    <nav>
+        <a href="./home">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="/.auth/login/aad">Login</a>
+    </nav>
+    <div class="container">
+        <div class="blog-post">
+            <h2>Piet Piraat heeft een mullet</h2>
+            <p>Wauw hij ziet er zo goed uit!</p>
+        </div>
+        <div class="blog-post">
+            <h2>First Adventure: Finding the Hidden Treasure</h2>
+            <p>Ahoy, mateys! Today, we embarked on an incredible journey to find the hidden treasure of Captain Blackbeard...</p>
+        </div>
+        <div class="blog-post">
+            <h2>A Day in the Life of a Pirate</h2>
+            <p>Ever wonder what it's like to live the pirate life? Let me tell you about our daily routine on the ship...</p>
+        </div>
+        <div class="blog-post">
+            <h2>Top 10 Pirate Movies</h2>
+            <p>If you love pirates as much as I do, you won't want to miss these swashbuckling films. Here are my top 10 favorites...</p>
+        </div>
+    </div>
+
+    <div id="pirateData">
+
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Pirate's Blog. All Rights Reserved.
+    </div>
+    <script>
+        fetch("/api/pirate").then(r => r.text()).then(data => {
+            let p = document.getElementById("pirateData");
+            p.innerHTML = data;
+        });
+    </script>
+</body>
+</html>
